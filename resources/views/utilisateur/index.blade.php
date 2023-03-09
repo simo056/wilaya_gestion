@@ -4,7 +4,7 @@
     <div class="row justify-content-center" >
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header"> Utilisateur</div>
+                <div class="card-header"> Utilisateurs</div>
 
                 <div class="card-body">
                         <div>
