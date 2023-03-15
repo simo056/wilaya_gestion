@@ -169,12 +169,12 @@
               </div>
               <div>
                 <button type="submit"  class="btn btn-outline-info" >Log in</button>
-                <a class="reset_pass" href="#">Lost your password?</a>
+                {{-- <a class="reset_pass" href="#">Lost your password?</a> --}}
               </div>
 
               <div class="clearfix"></div>
 
-              <div class="separator">
+              {{-- <div class="separator">
                 <p class="change_link">New to site?
                   <a href="#signup" class="to_register"> Create Account </a>
                 </p>
@@ -182,8 +182,8 @@
                 <div class="clearfix"></div>
                 <br />
 
-                <div>
-                  <h1><i class="fa fa-users"></i> Gestion des cadres</h1>
+                <div> --}}
+                  <h1><i href="index.html" class="site_title"><img src="assets/images/wilaya.png" alt="Logo"></i> Wilaya Activités</h1>
                   <p>© Prefecture Région Marrakech-Safi</p>
                 </div>
               </div>
@@ -191,7 +191,7 @@
           </section>
         </div>
 
-        <div id="register" class="animate form registration_form">
+        {{-- <div id="register" class="animate form registration_form">
           <section class="login_content">
             <form>
               <h1>Create Account</h1>
@@ -222,7 +222,7 @@
                   <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
                   <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 4 template. Privacy and Terms</p>
                 </div>
-              </div>
+              </div> --}}
               
             </form>
           </section>

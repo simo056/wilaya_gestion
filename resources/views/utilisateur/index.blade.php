@@ -9,8 +9,9 @@
                 <div class="card-body">
                         <div>
 
+                            
+                            <a href="{{ route('utilisateur.create') }}" class="btn btn-primary">Ajouter Un Utilisateur</a>
                             <h1 class="card-title" >Liste Des Utilisateurs </h1>
-
                                 <table id="myTable" class="table table-bordered  table-stripped">
                                     <thead>
                                         <tr>
@@ -22,11 +23,12 @@
                                     </thead>
                                     <tbody>
                                         @foreach($users as $user)
+                                            @if($user->id_role != 1)
                                             <tr>
                                                 <td>{{ $user->id_user }}</td>
                                                 <td>{{ $user->nom_user }} {{ $user->prenom_user }}</td>
                                                 <td>{{ $user->email }}</td>
-                                                <td>{{ $user->id_role }}</td>
+                                                <td>{{ $user->Role->nom_role }}</td>
                                                 <td class="d-flex justify-content-center align-items-center">
                                                     <a class="btn btn-sm btn-primary" href="#" role="button">
                                                         <i class="fa fa-eye"></i>
@@ -42,6 +44,7 @@
                                                     </button>
                                                 </td>
                                             </tr>
+                                            @endif
                                          @endforeach
                                     </tbody>
                                 </table> 

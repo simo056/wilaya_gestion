@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UtilisateurController extends Controller
 {
@@ -27,17 +29,32 @@ class UtilisateurController extends Controller
         $users = User::all();
         return view('utilisateur.index', ['users' => $users]);
     }
-    // public function liste() {
-    //     $users = User::all();
-    //     // dd($users);
-    //     return view('utilisateur.liste', ['users' => $users]);
-    // }
 
-    // public function showUsers()
-    // {
-    //     $users = User::all();
+    public function create()
+    {
+        $roles = Role::all();
+        return view('utilisateur.create', compact('roles'));
+    }
 
-    //     return view('users.index', ['users' => $users]);
-    // }
+    public function store(Request $request)
+    {
+        $request->validate([
+            'nom_user' => 'required',
+            'prenom_user' => 'required',
+            'email' => 'required|email|unique:users',
+            'role' => 'required',
+        ]);
+        // dd($request->all());
 
+        $user = User::create([
+            'id_role' => $request->role,
+            'nom_user' => $request->nom_user,
+            'prenom_user' => $request->prenom_user,
+            'email' => $request->email,
+            'password' => Hash::make('user@123'),
+        ]
+        );
+
+        return redirect()->route('utilisateur.index')->with('success', 'L\'utilisateur a été ajouté avec succès.');
+    }
 }

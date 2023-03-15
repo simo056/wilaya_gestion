@@ -26,15 +26,10 @@ CanResetPasswordContract
     protected $fillable = ['id_role','nom_user','prenom_user','email','password'];
     // ljadid
     
-    public function role()
+    public function Role()
     {
-        return $this->belongsTo(Role::class, 'id_role');
+        return $this->belongsTo('App\Models\Role', 'id_role');
     
-    }
-
-    public function users()
-    {
-        return $this->hasMany(User::class, 'id_role');
     }
 
 }
