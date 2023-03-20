@@ -17,7 +17,7 @@ class UtilisateurController extends Controller
         $this->middleware('auth');
     }
 
-    /**
+    /*
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
@@ -25,7 +25,7 @@ class UtilisateurController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('utilisateur.index', ['users' => $users]);
+        return view('utilisateur.index', ['users' => $users]); 
     }
     // public function liste() {
     //     $users = User::all();

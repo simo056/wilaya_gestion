@@ -24,6 +24,25 @@ Route::group(['middleware'=>['guest']], function(){
 
 
 
+Route::get('/ajouter','HomeController@ajouter');
+Route::get('/consulter/{id}','HomeController@consulter');
+Route::get('/Corbeille','HomeController@Corbeille');
+Route::get('/modifier/{id}','HomeController@modifier');
+Route::post('/saveajouter','HomeController@saveajouter');
+Route::post('/savemodifier','HomeController@savemodifier');
+Route::get('/annuler/{id}','HomeController@annuler');
+Route::get('/resolu/{id}','HomeController@resolu');
+Route::get('/supprimer/{c}','HomeController@supprimer'); //dans le lien donnee /supprimer/{$m->id_act..}
+Route::get('/ajouter_utilisateur','HomeController@ajouter_user');
+
+
+
+Route::get('/supprimer_thematique/{id}','ThematiqueController@supprimer_thematique');
+Route::post('/ajouter_thematique','ThematiqueController@ajouter_thematique');
+Route::get('/Modifier_thematique/{id}','ThematiqueController@Modifier_thematique');
+Route::post('/save_modifier_thematique/{id}','ThematiqueController@save_modifier_thematique');
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/thematiques', 'ThematiqueController@index')->name('thematique.index');
 Route::get('/utilisateurs', 'UtilisateurController@index')->name('utilisateur.index');
@@ -33,3 +52,4 @@ Route::get('/register',function () {
     return redirect('login');
 })
 ?>
+
