@@ -2,14 +2,12 @@
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" href="{{asset('assets/images/favicon.png')}}" type="image/ico" />
+	  <link rel="icon" href="{{asset('assets/images/favicon.png')}}" type="image/ico" />
 
-
-     @include('layouts.head')
+      @include('layouts.head')
 
   </head>
 
@@ -19,9 +17,12 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
+{{-- <<<<<<< HEAD --}}
               <a href="index.html" class="site_title"><img src="assets/images/wilaya.png" alt="Logo"> <span>Wilaya Activités</span></a>
+=======
+              <a href="#" class="site_title"><i class="fa fa-users"></i> <span>Wilaya Cadres</span></a>
+>>>>>>> 35fea0c53616082690bdc2d9ee4d1c84f96323e3
             </div>
-
             <div class="clearfix"></div>
 
             <!-- menu profile quick info -->
