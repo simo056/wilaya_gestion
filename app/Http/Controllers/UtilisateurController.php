@@ -46,15 +46,36 @@ class UtilisateurController extends Controller
         ]);
         // dd($request->all());
 
-        $user = User::create([
-            'id_role' => $request->role,
-            'nom_user' => $request->nom_user,
-            'prenom_user' => $request->prenom_user,
-            'email' => $request->email,
-            'password' => Hash::make('user@123'),
-        ]
+        $user = User::create(
+            [
+                'id_role' => $request->role,
+                'nom_user' => $request->nom_user,
+                'prenom_user' => $request->prenom_user,
+                'email' => $request->email,
+                'password' => Hash::make('user@123'),
+            ]
         );
 
         return redirect()->route('utilisateur.index')->with('success', 'L\'utilisateur a été ajouté avec succès.');
+    }
+    public function destroy($id)
+    {
+        
+        $utilisateur = User::find($id);
+
+        
+        $utilisateur->etat = -1;
+        $utilisateur->save();
+
+        return redirect()->route('utilisateur.index')->with('success', 'Utilisateur supprimé avec succès.');
+    }
+
+    public function edite($id)
+    {
+        $utilisateur = User::find($id);
+
+        return view('utilisateur.edite',['utilisateur' => $utilisateur]);
+
+
     }
 }

@@ -29,6 +29,7 @@ Route::get('/thematiques', 'ThematiqueController@index')->name('thematique.index
 Route::get('/utilisateurs', 'UtilisateurController@index')->name('utilisateur.index');
 Route::get('/user/create', 'UtilisateurController@create')->name('utilisateur.create');
 Route::post('/user/store', 'UtilisateurController@store')->name('utilisateur.store');
+Route::get('/utilisateurs/{id}', 'UtilisateurController@destroy')->name('utilisateur.destroy');
 // Route::get('/utilisateurs', 'UtilisateurController@liste')->name('utilisateurs.liste');
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/register',function () {

@@ -23,6 +23,7 @@
                                     </thead>
                                     <tbody>
                                         @foreach($users as $user)
+                                            @if($user->etat != -1)
                                             @if($user->id_role != 1)
                                             <tr>
                                                 <td>{{ $user->id_user }}</td>
@@ -36,14 +37,16 @@
                                                     <a class="btn btn-sm btn-warning " href="#" role="button">
                                                         <i class="fa fa-edit"></i>
                                                     </a>  
-                                                    <form action="" method="post">
-                                                        @method('DELETE')
-                                                        @csrf
-                                                    </form>
-                                                    <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>
-                                                    </button>
+                                                    
+                                                        
+                                                    <a  class="btn btn-sm btn-danger" href="{{url('/utilisateurs',['id' => $user->id_user ])}}" role ="button"> 
+                                                        <i class="fa fa-trash"></i>
+                                                    </a>
                                                 </td>
+                                                     
+                                                    
                                             </tr>
+                                            @endif
                                             @endif
                                          @endforeach
                                     </tbody>
