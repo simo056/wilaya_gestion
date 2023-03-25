@@ -18,10 +18,9 @@
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
 {{-- <<<<<<< HEAD --}}
-              <a href="index.html" class="site_title"><img src="assets/images/wilaya.png" alt="Logo"> <span>Wilaya Activités</span></a>
-=======
-              <a href="#" class="site_title"><i class="fa fa-users"></i> <span>Wilaya Cadres</span></a>
->>>>>>> 35fea0c53616082690bdc2d9ee4d1c84f96323e3
+              
+
+              <a href="#" class="site_title"><img src="assets/images/wilaya.png" alt="Logo"> <span>Wilaya Cadres</span></a>
             </div>
             <div class="clearfix"></div>
 

@@ -1,9 +1,6 @@
 @extends('layouts.master')
 @section('content')
 <div class="cprimaryontainer">
-        <!-- <input class="btn btn-success" type="button" value="Ajouter Un Utilisateur"> -->
-        <!-- <button type="button" class="btn btn-primary btn-sm btn-block">Ajouter Un Utilisateur</button> -->
-        <a href="/ajouter_utilisateur" class="btn btn- btn-lg active" style='float:right' role="button" aria-pressed="true">Ajouter un Utilisateur</a>
 
     <div class="row justify-content-center" >
         <div class="col-md-10">

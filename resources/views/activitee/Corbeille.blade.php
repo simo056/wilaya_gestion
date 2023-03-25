@@ -21,7 +21,7 @@
                     <td>{{ $act->date_debut}}</td>
                     <td>{{ $act->date_fin}}</td>
                     <td >déjà supprimer</td>
-                    <th ><a class="btn btn-info" href="{{url('/consulter',['id' => $act->id_activites])}}" role="button">Restaurer</a></th>
+                    <th ><a class="btn btn-info" href="{{url('/restaurer',['id' => $act->id_activites])}}" role="button">Restaurer</a></th>
                 </tr>
             @endif
         @endforeach

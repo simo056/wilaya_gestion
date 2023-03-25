@@ -27,6 +27,7 @@ Route::group(['middleware'=>['guest']], function(){
 Route::get('/ajouter','HomeController@ajouter');
 Route::get('/consulter/{id}','HomeController@consulter');
 Route::get('/Corbeille','HomeController@Corbeille');
+Route::get('/restaurer/{id}','HomeController@restaurer');
 Route::get('/modifier/{id}','HomeController@modifier');
 Route::post('/saveajouter','HomeController@saveajouter');
 Route::post('/savemodifier','HomeController@savemodifier');
