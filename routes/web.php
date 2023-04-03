@@ -41,15 +41,21 @@ Route::get('/ajouter_utilisateur','HomeController@ajouter_user');
 Route::get('/supprimer_thematique/{id}','ThematiqueController@supprimer_thematique');
 Route::post('/ajouter_thematique','ThematiqueController@ajouter_thematique');
 Route::get('/Modifier_thematique/{id}','ThematiqueController@Modifier_thematique');
-Route::post('/save_modifier_thematique/{id}','ThematiqueController@save_modifier_thematique');
+Route::post('/save_modifier_thematique','ThematiqueController@save_modifier_thematique');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/thematiques', 'ThematiqueController@index')->name('thematique.index');
 Route::get('/utilisateurs', 'UtilisateurController@index')->name('utilisateur.index');
+
+
 Route::get('/user/create', 'UtilisateurController@create')->name('utilisateur.create');
 Route::post('/user/store', 'UtilisateurController@store')->name('utilisateur.store');
 Route::get('/utilisateurs/{id}', 'UtilisateurController@destroy')->name('utilisateur.destroy');
+Route::get('/edite/{id}','UtilisateurController@edite');
+Route::post('/save_edite','UtilisateurController@save_edite');
+Route::get('/consulter1/{id}','UtilisateurController@consulter');
+
 // Route::get('/utilisateurs', 'UtilisateurController@liste')->name('utilisateurs.liste');
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/register',function () {

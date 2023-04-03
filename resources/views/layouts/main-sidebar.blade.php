@@ -3,8 +3,10 @@
     <div class="menu_section">
 
         <ul class="nav side-menu">
-          <li><a href="home"><i class="fa fa-home"></i> Activités </a></li>
+          <li><a href="/home"><i class="fa fa-home"></i> Activités </a></li>
+          @if(Auth::user()->id_role != 3)
         <li> <a href="{{ route('utilisateur.index') }}"><i class="fa fa-user"></i> Utilisateur </a></li>
+          @endif
           @if(Auth::user()->id_role == 1)
           <li><a href="{{route('thematique.index')}}"><i class="fa fa-list-alt"></i>Thématique</a></li>
           @endif

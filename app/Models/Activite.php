@@ -27,6 +27,9 @@ class Activite extends Model
         return $this->belongsTo(Thematique::class, 'id_thematiques');
     
     }
+    public function Proprietaire(){
+        return $this->belongsTo('App\models\User','id_user');
+    }
 
     
 

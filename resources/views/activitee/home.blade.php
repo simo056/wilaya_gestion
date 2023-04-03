@@ -3,24 +3,29 @@
 @section('content')
 
 <div class="container">
-    <a href="/Corbeille" class="btn btn-primary btn-lg active" style='float:right' role="button" aria-pressed="true">Corbeille</a>
-    <a href="/ajouter" class="btn btn-primary btn-lg active" style='float:right' role="button" aria-pressed="true">Ajouter une activité</a>
-    
+    @if (Auth::user()->id_role == 3)
+        <a href="/Corbeille" class="btn btn-primary btn-lg active" style='float:right' role="button" aria-pressed="true">Corbeille</a>
+        <a href="/ajouter" class="btn btn-primary btn-lg active" style='float:right' role="button" aria-pressed="true">Ajouter une activité</a>
+    @endif
     <table class="table table-striped">  
         <tr>
             <th >Objet</th>
             <th >Utilisateur</th>
             <th >Date Debut</th>
             <th >Statut</th>
-
             <th >Actions</th>
+            @if (Auth::user()->id_role == 3)
             <th>Pieces Jointes</th>
+            @endif
         </tr>
         @foreach($activites as $act)
             @if($act ->affichage == 0)
+            @if (Auth::user()->id_role === 3)
+            @if ($act->Proprietaire->id_role === 3)
+            @if($act->id_user == Auth::user()->id_user )
                 <tr>
                     <td >{{ $act->objet }}</td>
-                    <td>{{Auth::user()->nom_user }} {{Auth::user()->prenom_user }}</td>
+                    <td>{{$act->Proprietaire->nom_user}} {{$act->Proprietaire->prenom_user }}</td>
                     <td>{{ $act->date_debut}}</td>
                     <td>@if($act->status == 0)
                             <p>en cours </p>
@@ -52,8 +57,31 @@
                         <a class="btn btn-primary" href="{{url('/consulter',['id' => $act->id_activites])}}" role="button">Consulter</a>
                         @endif
                      </td> 
-
                 </tr>
+            @endif
+            @endif
+            @else 
+            <tr>
+                <td >{{ $act->objet }}</td>
+                <td>{{$act->Proprietaire->nom_user}} {{$act->Proprietaire->prenom_user}} </td>
+                <td>{{ $act->date_debut}}</td>
+                <td>@if($act->status == 0)
+                        <p>en cours </p>
+                    @elseif($act->status == 1)
+                        <p>Résolu</p>
+                    @else
+                        <p>Annulée</p>
+                    @endif
+                </td>
+                <td>
+                    @if  ($act-> piece_joints  != "")
+                        <a  class='text-primary' href="{{asset('uploadedimages/'.$act->id_activites.'/'.$act->piece_joints)}}" download="{{$act->piece_joints}}">Télécharger</a>
+                    @else
+                        <p class='text-danger'>Aucune fichier</p>
+                    @endif
+                </td>
+            </tr>
+            @endif
             @endif
         @endforeach
     </table>

@@ -78,4 +78,23 @@ class UtilisateurController extends Controller
 
 
     }
+    public function save_edite(Request $request){
+        // $request->validate([
+        //     'nom_thematique'=>'required',
+        // ]);
+        $utilisateur = User::find($request->id_user);
+        $utilisateur->nom_user =  $request->nom_user;
+        $utilisateur->prenom_user =  $request->prenom_user;
+        $utilisateur->email =  $request->email;
+
+        $utilisateur->save();
+        return redirect('/utilisateurs');
+        }
+
+        public function consulter($id)
+        {
+            $utilisateur = User::find($id);
+        
+            return view('utilisateur.consulter', ['utilisateur' => $utilisateur]);
+        }
 }

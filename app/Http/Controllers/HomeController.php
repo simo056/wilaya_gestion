@@ -56,7 +56,13 @@ class HomeController extends Controller
         $user = Auth::user()->id_user;
         // dd($request->all());
         // dd($request->all());
-        $imageName = $request->piece_joints->getClientOriginalName(); // <= pour telecharger on méme nome du entr...| deferant name->getClientOriginalExtension()
+        if (isset($request->piece_joints)) {
+            $date = date('y-m-d');  
+            $imageName = $request->piece_joints->getClientOriginalName();
+             // <= pour telecharger on méme nome du entr...| deferant name->getClientOriginalExtension()
+             $request->piece_joints->move(public_path('/uploadedimages/' . $date), $imageName);
+             $url = asset('uploadedimages/' . $date . '/' . $imageName);
+        }
         $Activite = Activite::create([
             'id_thematiques' => $request->thematique,
             'objet' => $request->objet,
@@ -67,11 +73,10 @@ class HomeController extends Controller
             'commentaire' => $request->commentaire,
             'id_user' => $user,
             'affichage' => 0,
-            'piece_joints' => $imageName
+            'piece_joints' =>$request->piece_joints ? $imageName : ""
         ]);
         $Activite->save();
-        $request->piece_joints->move(public_path('/uploadedimages/' . $Activite->id_activites), $imageName);
-        $url = asset('uploadedimages/' . $Activite->id_activites . '/' . $Activite->piece_joints);
+    
         return redirect('/home');
     }
 
@@ -82,7 +87,7 @@ class HomeController extends Controller
         $n = Thematique::all();
         $Activite = Activite::find($id);
         // $n = Thematique::where('etat',1)->get();
-        return view('activitee.modifier', ['users' => $users, 'thematiques' => $n, 'Activite' => $Activite]);
+        return view('activitee.modifier', ['users' => $users, 'thematiques' => $n,'Activite' => $Activite]);
     }
 
     public function savemodifier(Request $request)
@@ -93,9 +98,9 @@ class HomeController extends Controller
             'description' => 'required',
             'commentaires' => 'required',
         ]);
-        $user = new User();
-        $activite = Activite::find($request->id_activites);
+        // $user = new User();
         // dd($activite,$request->all());
+        $activite = Activite::find($request->id_activites);
         $activite->objet = $request->objet;
         $activite->description = $request->description;
         $activite->commentaire = $request->commentaire;

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Thematique;
+use stdClass;
+
 class ThematiqueController extends Controller
 {
     /**
@@ -49,13 +51,18 @@ class ThematiqueController extends Controller
         $thematique = Thematique::find($id);
         return view('thematique.modifier',['thematique'=>$thematique]);
     }
-   public function save_Modifier_thematique(Request $request){
-    $request->validate([
-        'nom_thematiques'=>'required',
-    ]);
-    $thematique = Thematique::find($id);
-    $thematique->nom_thematiques =  $request->nom_thematique;
-    $thematique->save();
+   public function save_modifier_thematique(Request $request){
+    // $request->validate([
+    //     'nom_thematique'=>'required',
+    // ]);
+    $Thematique = Thematique::find($request->id_thematiques);
+    if(isset($request->nom_thematiques)){
+        $Thematique->nom_thematiques =  $request->nom_thematiques;
+//    ddd($request->nom_thematiques);
+  
+    }
+
+    $Thematique->save();
     return redirect('/thematiques');
 
 }}

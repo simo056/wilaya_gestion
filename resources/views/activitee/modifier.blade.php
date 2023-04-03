@@ -6,9 +6,6 @@
     <form method='post' action='/savemodifier'>
     @csrf 
 
-
-
-
       <div class="form-group">
         <label for="objet">Objet</label>
         <input type="text" class="form-control" id="objet" value='{{ $Activite->objet }}'  name='objet' >

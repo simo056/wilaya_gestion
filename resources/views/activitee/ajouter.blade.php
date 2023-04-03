@@ -8,7 +8,7 @@
 
       <div class="form-group">
         <label for="utilisateur">utilisateur</label>
-        <input type="text" class="form-control" id="utilisateur" value='{{ $users[0]->nom_user }} - {{ $users[0]->prenom_user }}' disabled>
+        <input type="text" class="form-control" id="utilisateur" value='{{Auth::user()->nom_user }} {{Auth::user()->prenom_user }}' disabled>
       </div>
 
       <div class="form-group">

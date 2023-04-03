@@ -20,7 +20,7 @@
 {{-- <<<<<<< HEAD --}}
               
 
-              <a href="#" class="site_title"><img src="assets/images/wilaya.png" alt="Logo"> <span>Wilaya Cadres</span></a>
+              <a href="#" class="site_title"><img src="/assets/images/wilaya.png" alt="Logo"> <span>Wilaya Cadres</span></a>
             </div>
             <div class="clearfix"></div>
 

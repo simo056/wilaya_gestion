@@ -9,9 +9,9 @@
 
                 <div class="card-body">
                         <div>
-
-                            
+                            @if(Auth::user()->id_role == 1)
                             <a href="{{ route('utilisateur.create') }}" class="btn btn-primary">Ajouter Un Utilisateur</a>
+                            @endif
                             <h1 class="card-title" >Liste Des Utilisateurs </h1>
                                 <table id="myTable" class="table table-bordered  table-stripped">
                                     <thead>
@@ -32,10 +32,11 @@
                                                 <td>{{ $user->email }}</td>
                                                 <td>{{ $user->Role->nom_role }}</td>
                                                 <td class="d-flex justify-content-center align-items-center">
-                                                    <a class="btn btn-sm btn-primary" href="#" role="button">
+                                                    <a class="btn btn-sm btn-primary" href="{{url('/consulter1',['id' => $user->id_user ])}}" role="button">
                                                         <i class="fa fa-eye"></i>
                                                     </a>
-                                                    <a class="btn btn-sm btn-warning " href="#" role="button">
+                                                    @if (Auth::user()->id_role != 2)
+                                                    <a class="btn btn-sm btn-warning " href="{{url('/edite',['id' => $user->id_user ])}}" role="button">
                                                         <i class="fa fa-edit"></i>
                                                     </a>  
                                                     
@@ -43,6 +44,7 @@
                                                     <a  class="btn btn-sm btn-danger" href="{{url('/utilisateurs',['id' => $user->id_user ])}}" role ="button"> 
                                                         <i class="fa fa-trash"></i>
                                                     </a>
+                                                    @endif
                                                 </td>
                                                      
                                                     
